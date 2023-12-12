@@ -1,0 +1,49 @@
+
+server:
+  port: 8890
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/game_db?rewriteBatchedStatements=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: xxxx
+    password: xxxx
+  redis:
+    database: 2
+    host: 127.0.0.1
+    port: 6379
+    password: xxxxxxx
+    timeout: 10s
+    lettuce:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+
+mybatis-flex:
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.example.game.entity
+
+# Sa-Token  (??: https://sa-token.cc)
+sa-token:
+  token-name: token
+  timeout: 2592000
+  active-timeout: -1
+  # ????????????
+  is-concurrent: false
+  # ????????????????????token
+  is-share: true
+  token-style: random-32
+  is-log: true
+
+# ???????????
+logging:
+  level:
+    com.example.game: debug
+
+# ???????
+default:
+  user:
+    avatar: https://soultmint-media.oss-cn-hangzhou.aliyuncs.com/1672825574162.png
+    common-salt: H8OjG9m1T6zK5w3Ps
